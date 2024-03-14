@@ -2,6 +2,35 @@
 @import url("dingbat_xeicon.css");
 @import url("nanumsquare/nanumsquare.css");
 @import url("notosanskr/NotoSansKR.css");
+/* Chrome, Safari용 스크롤 바 */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  border: 3px solid #fff;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+  display: block;
+  height: 10px;
+  background-color: #efefef;
+}
+
+::-webkit-scrollbar-track {
+  background: #efefef;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .2)
+}
+
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  width: 50px;
+  background: rgba(0, 0, 0, .2);
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .1)
+}
 * {
   margin: 0;
   padding: 0;
@@ -274,7 +303,9 @@ body {
   top: 65px;
   left: 50%;
   transform: translateX(-50%);
+  display: block;
   width: 230px;
+  background-color: #fff;
 
   /* 스크롤생성 */
   max-height: 450px;
@@ -285,7 +316,7 @@ body {
   font-size: 1.6rem;
   font-weight: 400;
   color: #333;
-  line-height: 2.0rem;
+  line-height: 2rem;
   padding-top: 30px;
   padding-bottom: 10px;
 
@@ -294,14 +325,17 @@ body {
   opacity: 0;
   top: 50px;
   transition: all 0.3s;
-
 }
-.submenu>li{
+.submenu_focus {
+  visibility: visible;
+  opacity: 1;
+  top: 65px;
+}
+.submenu > li {
   position: relative;
   display: block;
-
 }
-.submenu>li >a{
+.submenu > li > a {
   position: relative;
   display: block;
   font-size: 1.6rem;
@@ -310,58 +344,63 @@ body {
 
   transition: color 0.3s;
 }
-.submenu>li:hover >a{
+.submenu > li:hover > a {
   color: #fff;
   background-color: #ec008c;
 }
-.submenu>li>a>i {
+.submenu > li > a > i {
   float: right;
   margin-top: 11px;
 }
+.submenu_focus_link {
+  background-color: #ec008c;
+}
+.submenu_focus_link > a {
+  color: #fff;
+}
 /* 3 depth 메뉴 */
-.submenu-3rd{
+.submenu-3rd {
   position: relative;
   display: none;
-  background-color:#efd3ec ;
+  background-color: #efd3ec;
 }
-.submenu-3rd >li >a{
+.submenu-3rd > li > a {
   position: relative;
   display: block;
   font-size: 1.4rem;
-    line-height: 40px;
-    padding: 0 10px;
+  line-height: 40px;
+  padding: 0 10px;
 
-    transition: background 0.3s;
+  transition: background 0.3s;
 }
-.submenu-3rd >li:hover >a{
-  background-color:#f1c3ec ;
+.submenu-3rd > li:hover > a {
+  background-color: #f1c3ec;
 }
-.more-menu{
+.more-menu {
   position: absolute;
   right: 8px;
   top: 50%;
   transform: translateY(-50%);
   display: block;
 }
-.more-menu>li {
+.more-menu > li {
   position: relative;
   display: block;
   float: left;
   margin-left: 34px;
 }
 
-.more-menu>li>a {
+.more-menu > li > a {
   position: relative;
   display: block;
 }
-.hm{
+.hm {
   position: relative;
   display: block;
   width: 24px;
   height: 19px;
-  
 }
-.hm span{
+.hm span {
   position: absolute;
   width: 20px;
   height: 2px;
@@ -393,18 +432,18 @@ body {
 .hm:hover span:nth-child(3) {
   left: 4px;
 }
-.search-bt{
+.search-bt {
   font-size: 2.4rem;
   color: #333;
   font-weight: 400;
   width: 24px;
   height: 18px;
 }
-.search-bt i{
+.search-bt i {
   vertical-align: 3px;
 }
 /* <!-- 서브메뉴에 호버했을때 바탕화면 --> */
-.header-dim{
+.header-dim {
   display: none;
   position: fixed;
   left: 0;
